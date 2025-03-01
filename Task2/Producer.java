@@ -18,6 +18,7 @@ public class Producer<T> implements Runnable{
 
         for (int i = 0; i < data.length; i++) {
             drop.put(data[i]);
+            System.out.format("MESSAGE PRODUCED: %s%n", data[i]);
             try {
                 Thread.sleep(random.nextInt(500));
             } catch (InterruptedException e) {}
