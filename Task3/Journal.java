@@ -43,10 +43,10 @@ class Journal {
         List<Student> group = getGroup(groupNumber);
         lock.lock();
         try {
-            System.out.println("Week " + week + ": " + grader + " is assigning grades to " + "Group " + groupNumber);
+            System.out.println("Week " + week + ": " + grader + " is assigning grades to Group " + groupNumber);
             for (Student student : group) {
                 int grade = new Random().nextInt(101);
-                student.setGrade(grade);
+                student.addGrade(grade);
                 System.out.println(grader + " assigned " + grade + " to " + student.getName());
             }
             System.out.println(grader + " finished grading Group " + groupNumber + " for Week " + week);
@@ -66,7 +66,8 @@ class Journal {
 
     private void printGroupGrades(List<Student> group) {
         for (Student student : group) {
-            System.out.println(student.getName() + ": " + student.getGrade());
+            System.out.println(student.getName() + " | Grades: " + student.getGrades() +
+                    " | Average: " + student.getAverageGrade());
         }
     }
 }
